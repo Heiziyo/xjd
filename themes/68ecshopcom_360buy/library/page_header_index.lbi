@@ -55,14 +55,14 @@ window.onerror = killerrors;
         <div class="wrap-line"><span style="left:15px;"></span></div>
       </div>
 		<div class="all-cat main-bg-color"> 
-        <!--{foreach from=get_categories_tree(0) item=cat name=cat0}-->
+        <!--{foreach from=cat_all_two() item=cat name=cat0}-->
         <div class="list">
           <dl class="cat">
             <dt class="cat-name"> <a href="{$cat.url}" target="_blank" title="进入{$cat.name}频道">{$cat.name}</a> </dt>
             <i>&gt;</i>
           </dl>
           <div class="categorys">
-            <div class="item-left fl"> 
+            <!--<div class="item-left fl">
               
               <!-- {foreach from=$cat.cat_id item=childs name=name} --> 
               <!-- {foreach from=get_child_tree_best($GLOBALS['smarty']->_var['childs']['id']) item=child_best name=child_best} --> 
@@ -87,7 +87,7 @@ window.onerror = killerrors;
                 </dl>
                 <!--{/foreach}--> 
               </div>
-            </div>
+            </div>-->
             <div class="item-right fr">
               <div class="item-brands">
                 <div class="brands-inner"> 

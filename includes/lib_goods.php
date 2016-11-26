@@ -31,6 +31,52 @@ function goods_sort($goods_a, $goods_b)
 }
 
 /**
+ * 获取所有二级分类
+ */
+function cat_all_two(){
+    $sql = 'SELECT cat_id FROM ' . $GLOBALS['ecs']->table('category') . " WHERE parent_id = '0' and is_show = 1";
+    $parentcat_id = $GLOBALS['db']->getAll($sql);
+    if(!$parentcat_id){
+        return array();
+    }
+    else{
+
+        foreach ($parentcat_id as $val){
+            $parentcat_ids[] = $val['cat_id'];
+        }
+        $catids = implode(',',$parentcat_ids);
+
+        $sql = 'SELECT cat_id,cat_name ,parent_id,is_show  FROM ' . $GLOBALS['ecs']->table('category') . " WHERE parent_id in($catids) and is_show = 1 and is_virtual=0 ORDER BY sort_order ASC, cat_id ASC ";
+
+        $res = $GLOBALS['db']->getAll($sql);
+
+        foreach ($res AS $row)
+        {
+            if ($row['is_show'])
+            {
+                $cat_arr[$row['cat_id']]['id']   = $row['cat_id'];
+                $cat_arr[$row['cat_id']]['name'] = $row['cat_name'];
+                $cat_arr[$row['cat_id']]['url']  = build_uri('category', array('cid' => $row['cat_id']), $row['cat_name']);
+
+                if (isset($row['cat_id']) != NULL)
+                {
+                    $cat_arr[$row['cat_id']]['cat_id'] = get_child_tree($row['cat_id']);
+                }
+            }
+        }
+
+        if(isset($cat_arr))
+        {
+            return $cat_arr;
+        }
+
+    }
+
+
+}
+
+
+/**
  * 获得指定分类同级的所有分类以及该分类下的子分类
  *
  * @access  public

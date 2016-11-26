@@ -980,7 +980,9 @@ i, cite,em, strong, th {
 	width: 14px;
 }
 .all-cat .list .categorys {
+    /*
 	width: 1000px;
+    */
 	height: auto !important;
 	min-height: 512px;
 	border: 1px solid #E31939;
@@ -1077,7 +1079,8 @@ i, cite,em, strong, th {
 }
 .all-cat .list .categorys .item-right {
 	width: 182px;
-	margin-right: 20px;
+	margin-right: 10px;
+	margin-left: 10px;
 }
 .all-cat .list .categorys .item-brands {
 	width: 182px;
