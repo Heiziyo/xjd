@@ -46,7 +46,7 @@ function cat_all_two(){
         }
         $catids = implode(',',$parentcat_ids);
 
-        $sql = 'SELECT cat_id,cat_name ,parent_id,is_show  FROM ' . $GLOBALS['ecs']->table('category') . " WHERE parent_id in($catids) and is_show = 1 and is_virtual=0 ORDER BY sort_order ASC, cat_id ASC ";
+        $sql = 'SELECT cat_id,cat_name ,parent_id,is_show  FROM ' . $GLOBALS['ecs']->table('category') . " WHERE parent_id in($catids) and is_show = 1 and is_virtual=0 ORDER BY sort_order ASC, cat_id ASC limit 0,15 ";
 
         $res = $GLOBALS['db']->getAll($sql);
 
