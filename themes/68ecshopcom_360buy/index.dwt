@@ -33,7 +33,8 @@ var select_spe = "{$lang.select_spe}";
     <div class="banner">
 		<!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem -->
         <div class="right-sidebar">
-			<!-- #BeginLibraryItem "/library/recommend_right_promotion.lbi" --><!-- #EndLibraryItem -->	
+            <!-- 限时抢购 -->
+			<!-- #BeginLibraryItem "/library/recommend_right_promotion.lbi" --><!-- #EndLibraryItem -->
             <div class="proclamation">
 					<ul class="tabs-nav">
                     	<li class="tabs-selected">

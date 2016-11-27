@@ -160,6 +160,13 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
         $ad = $db->getRow($sql, true);
         $smarty->assign('ad', $ad);
     }
+    /* 首页最新商家入驻*/
+    $sql = 'SELECT a.supplier_id,a.supplier_name,b.logo  FROM ' . $ecs->table("supplier") . 'as a ,' . $ecs->table("supplier_street") . 'as b  where a.supplier_id = b.supplier_id and a.status = 1 order by a.add_time asc';
+    $bussess_ad = $db->getAll($sql, true);
+    $smarty->assign('bussess_ad', $bussess_ad);
+
+
+
 
     /* links */
     $links = index_get_links();
